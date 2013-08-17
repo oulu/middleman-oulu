@@ -16,7 +16,7 @@ Middleman プロジェクト用の asset ファイル管理雛形 gem for デザ
 
 これで準備は完了です。
 
-Middleman のプロジェクトでは次のようの使用します。
+Middleman のプロジェクトでは次のように使用します。
 
     $ middleman init PROJECT
     $ cd PROJECT 
