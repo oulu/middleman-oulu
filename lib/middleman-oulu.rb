@@ -1,7 +1,7 @@
-require "middleman-assets/version"
+require "middleman-oulu/version"
 
 module Middleman
-  module Assets
+  module Oulu
     # Your code goes here...
   end
 end

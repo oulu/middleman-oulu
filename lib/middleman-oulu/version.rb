@@ -1,5 +1,5 @@
 module Middleman
-  module Assets
+  module Oulu
     VERSION = "0.0.1"
   end
 end
