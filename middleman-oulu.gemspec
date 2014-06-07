@@ -28,5 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "SassyLists"
   spec.add_development_dependency "toolkit"
   spec.add_development_dependency "sassy-maps"
+  spec.add_development_dependency "oily_png"
 
 end
