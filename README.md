@@ -7,8 +7,8 @@ Middleman プロジェクト用の oulu。
 Middleman のプロジェクトでは次のように使用します。
 
     $ middleman init PROJECT
-    $ cd PROJECT 
-    $ vi Gemfile 
+    $ cd PROJECT
+    $ vi Gemfile
 
 Gemfile の中に次の内容を追加します。
 
@@ -16,7 +16,7 @@ Gemfile の中に次の内容を追加します。
 
 ファイルを保存してから `bundle` コマンドを使ってインストールします。
 
-    $ bundle install --path vendor/bundle 
+    $ bundle install --path vendor/bundle
 
 これで Middleman の中から利用したいライブラリを呼び出すことができます。`source` 以下のファイルを編集したら Middleman を起動しましょう。
 
