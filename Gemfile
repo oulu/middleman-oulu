@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem "ceaser-easing"
-gem "breakpoint"
 gem "compass-rgbapng"
 gem "modular-scale"
 gem "SassyLists"
