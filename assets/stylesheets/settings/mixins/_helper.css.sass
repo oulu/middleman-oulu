@@ -28,6 +28,11 @@
   display: block
   text-decoration: none
 
+=letter-spacing-center($space-width)
+  @if $space-width
+    +rem('letter-spacing', $space-width)
+    +rem('text-indent', $space-width)
+
 =placeholder
   &::-webkit-input-placeholder
     @content
@@ -40,9 +45,10 @@
   margin: 0
   padding: 0
 
-=size($width, $height)
-  +rem('width', $width)
-  +rem('height', $height)
-
-=square($size)
-  +size($size, $size)
+=size($width, $height: false)
+  @if $height
+    +rem('width', $width)
+    +rem('height', $height)
+  @else
+    +rem('width', $width)
+    +rem('height', $width)
