@@ -3,6 +3,9 @@
   .amazlet-image
     float: none !important
     +rem('margin', 0 0 16px, !important)
+    a[target="_blank"]
+      &:after
+        content: none
     img
       max-width: 100%
       +rem('width', 260px)
