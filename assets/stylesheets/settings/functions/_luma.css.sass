@@ -11,15 +11,25 @@
     $rgba2: append($rgba2, $rgb)
   @return (0.2126 * nth($rgba2, 1) + 0.7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3)) * 100
 
-@function bright-or-dark($color)
+@function luma-contrast($color-1, $color-2: false)
+  @if $color-2
+    @return if(luma($color-1) - luma($color-2) < 51, false, true)
+  @else
+    @return if(luma($color-1) < 51, dark, bright)
+
+@function luma-contrast-value($color-1, $color-2: false)
+  @if $color-2
+    @return luma($color-1) - luma($color-2)
+  @else
+    @return luma($color-1)
+
+@function luma-bright($color)
+  @return if(luma($color) < 51, false, true)
+
+@function luma-dark($color)
+  @return if(luma($color) < 51, true, false)
+
+@function luma-contrast-color($color)
   $bright-color: #ffffff !default
   $dark-color: #000000 !default
-  @return if(luma($color) < 51, dark, bright)
-
-@function contrast-overlay($color)
-  $bright-color: #ffffff !default
-  $dark-color: #000000 !default
-  @return if(bright-or-dark($color) == bright, $bright-color, $dark-color)
-
-@function luma-difference($color-1, $color-2)
-  @return luma($color-1) - luma($color-2)
+  @return if(contrast($color) == bright, $bright-color, $dark-color)
