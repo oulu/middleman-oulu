@@ -13,11 +13,11 @@
 
 @function luma-contrast($color-1, $color-2: false)
   @if $color-2
-    @return if(luma($color-1) - luma($color-2) < 51, false, true)
+    @return if(luma($color-1) - luma($color-2) < 51, true, false)
   @else
     @return if(luma($color-1) < 51, dark, bright)
 
-@function luma-contrast-value($color-1, $color-2: false)
+@function luma-value($color-1, $color-2: false)
   @if $color-2
     @return luma($color-1) - luma($color-2)
   @else
