@@ -1,3 +1,5 @@
+$text-color: $black !default
+
 .amazlet-box
   +rem('margin-bottom', 32px, !important)
   .amazlet-image
@@ -17,7 +19,7 @@
 .amazlet-name
   a
     text-decoration: none
-    color: $black
+    color: $text-color
 .amazlet-detail
   +rem('font-size', 12px)
   +rem('margin-bottom', 8px, !important)
@@ -29,7 +31,7 @@
   +border(all, 2px, solid, $black)
   margin-top: 0 !important
   a
-    color: $black
+    color: $text-color
     text-decoration: none
     +text-block(12px, 20px, false)
     +horizontal-pd(6px)
