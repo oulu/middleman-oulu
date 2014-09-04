@@ -13,13 +13,25 @@
 
 @function luma-contrast($color-1, $color-2: false)
   @if $color-2
-    @return if(luma($color-1) - luma($color-2) < 51, true, false)
+    @if plus(luma($color-1) - luma($color-2)) < 51
+      @return false
+    @else
+      @return true
   @else
     @return if(luma($color-1) < 51, dark, bright)
 
+@function luma-contrast-light($color-1, $color-2: false)
+  @if $color-2
+    @if plus(luma($color-1) - luma($color-2)) > 100 / pi()
+      @return true
+    @else
+      @return false
+  @else
+    @return if(luma($color-1) < 50 / 2, dark, bright)
+
 @function luma-value($color-1, $color-2: false)
   @if $color-2
-    @return luma($color-1) - luma($color-2)
+    @return plus(luma($color-1) - luma($color-2))
   @else
     @return luma($color-1)
 
