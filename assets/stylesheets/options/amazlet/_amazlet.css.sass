@@ -27,17 +27,6 @@ $text-color: $black !default
   float: none !important
   text-align: right
 .amazlet-link
-  +inline-block(bottom)
-  +border(all, 2px, solid, $black)
-  margin-top: 0 !important
-  a
-    color: $text-color
-    text-decoration: none
-    +text-block(12px, 20px, false)
-    +horizontal-pd(6px)
-    &:after
-      +fa
-      content: "\f105"
-      +rem('margin-left', 8px)
+  display: none
 .amazlet-powered-date
   display: none !important

@@ -47,3 +47,13 @@ $ruma-threshold: 100 / pi()
     @return $bright-color
   @else
     @return $dark-color
+
+@function luma-add-contrast($background-color, $candidate-color)
+  @if luma-contrast($background-color, $candidate-color)
+    @return $candidate-color
+  @else
+    $contrast-value: luma-value($background-color, $candidate-color)
+    @if luma-dark($background-color)
+      @return tint($candidate-color, (100 - percentage($contrast-value/100))/(pi()/2))
+    @else
+      @return shade($candidate-color, (100 - percentage($contrast-value/100))/(pi()/2))
