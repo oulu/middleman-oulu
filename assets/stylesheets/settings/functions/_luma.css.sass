@@ -56,4 +56,4 @@ $ruma-threshold: 100 / pi()
     @if luma-dark($background-color)
       @return tint($candidate-color, (100 - percentage($contrast-value/100))/(pi()/2))
     @else
-      @return shade($candidate-color, (100 - percentage($contrast-value/100))/(pi()/2))
+      @return shade($candidate-color, (100 - percentage($contrast-value/100))/pi())
