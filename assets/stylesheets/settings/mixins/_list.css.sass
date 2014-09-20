@@ -1,4 +1,4 @@
-=list($margin-left: 16px, $margin-bottom: 24px, $list-style-type: disc, $list-style-potision: outside, $icon-size: 1em, $icon-potition: 0.42em, $icon-width: 1.7em)
+=list($margin-left: 16px, $margin-bottom: 24px, $list-style-type: disc, $list-style-potision: outside, $base-font-size: $baseline-px, $icon-size: $baseline-px, $icon-margin-right: false, $icon-y-potition: false)
   +rem('margin-left', $margin-left)
   +rem('margin-bottom', $margin-bottom)
   @if $list-style-type
@@ -6,13 +6,18 @@
       list-style-type: $list-style-type
       list-style-position: $list-style-potision
     @else if $list-style-type == "fa"
-      margin-left: $icon-width
       list-style-type: none
+      +rem('font-size', $base-font-size)
       >li
+        @if $icon-margin-right
+          $padding-size: em-px($icon-size, $base-font-size) + em-px($icon-margin-right, $base-font-size)
+          +rem('padding-left', $padding-size)
+        @else
+          +rem('padding-left', $icon-size)
         +relative
+        display: block
         &:before
           +fa
-          +text-block($icon-size, 1, false, center)
+          +text-block($icon-size, 1, false)
           content: "#{$list-style-potision}"
-          +absolute(left, $icon-width * -1, top, $icon-potition)
-          width: $icon-width
+          +absolute(left, 0, top, $icon-y-potition)
