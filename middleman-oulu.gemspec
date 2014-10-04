@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "compass-rgbapng"
   spec.add_development_dependency "modular-scale"
   spec.add_development_dependency "SassyLists"
-  spec.add_development_dependency "toolkit"
   spec.add_development_dependency "sassy-maps"
 
 end
