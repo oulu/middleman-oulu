@@ -1,41 +1,59 @@
-=absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: false, $absolute-value2: 0, $absolute-z-index: false)
+=position-variables($position-variables-values)
+  @each $position-variables-value in $position-variables-values
+    $position-variables-value-order: index($position-variables-values, $position-variables-value)
+    $next-position-variables-value-order: $position-variables-value-order + 1
+    $previous-position-variables-value-order: $position-variables-value-order - 1
+    $previous-position-variables-value: if(first_order($position-variables-values, $position-variables-value), null, nth($position-variables-values, $previous-position-variables-value-order))
+    @if odd($position-variables-value-order) and position($position-variables-value)
+      +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
+    @else if even($position-variables-value-order) and position($position-variables-value)
+      +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
+    @if not position($position-variables-value)
+      @if first_order($position-variables-values, $position-variables-value) or not position($previous-position-variables-value)
+        z-index: $position-variables-value
+
+=position-list($position-list-values)
+  @each $position-list-value in $position-list-values
+    @if length($position-list-value) >= 2
+      #{nth($position-list-value, 1)}: nth($position-list-value, 2)
+
+=position-map($position-map-values)
+  @each $key, $position-map-value in $position-map-values
+    @if position($key)
+      +rem($key, $position-map-value)
+    @else
+      z-index: $position-map-value
+
+=absolute($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
   position: absolute
-  +rem($absolute-direction1, $absolute-value1)
-  @if $absolute-direction2
-    +rem($absolute-direction2, $absolute-value2)
-  @if $absolute-z-index
-    z-index: $absolute-z-index
+  @if map($value1)
+    +position-map($value1)
+  @else if length($value1) == 1
+    +position-variables($value1 $value2 $value3 $value4 $value5)
+  @else
+    +position-list($value1 $value2 $value3 $value4 $value5)
 
-=fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: false, $fixed-value2: 0, $fixed-z-index: false)
+=fixed($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
   position: fixed
-  +rem($fixed-direction1, $fixed-value1)
-  @if $fixed-value2
-    +rem($fixed-direction2, $fixed-value2)
-  @if $fixed-z-index
-    z-index: $fixed-z-index
+  @if map($value1)
+    +position-map($value1)
+  @else if length($value1) == 1
+    +position-variables($value1 $value2 $value3 $value4 $value5)
+  @else
+    +position-list($value1 $value2 $value3 $value4 $value5)
 
-=relative($relative-z-index: false, $relative-direction1: false, $relative-value1: false, $relative-direction2: false, $relative-value2: false)
+=relative($value1: false, $value2: false, $value3: false, $value4: false, $value5: false)
   position: relative
-  @if $relative-z-index
-    z-index: $relative-z-index
-  @if $relative-direction1
-    +rem($relative-direction1, $relative-value1)
-  @if $relative-direction2
-    +rem($relative-direction2, $relative-value2)
+  @if length($value1) == 1
+    +position-variables($value1 $value2 $value3 $value4 $value5)
+  @else
+    +position-list($value1 $value2 $value3 $value4 $value5)
 
-=top($top-value, $z-index: false)
-  +relative(false, top, $top-value)
-  @if $z-index
-    z-index: $z-index
-=bottom($bottom-value, $z-index: false)
-  +relative(false, bottom, $bottom-value)
-  @if $z-index
-    z-index: $z-index
-=left($left-value, $z-index: false)
-  +relative(false, left, $left-value)
-  @if $z-index
-    z-index: $z-index
-=right($right-value, $z-index: false)
-  +relative(false, right, $right-value)
-  @if $z-index
-    z-index: $z-index
+=top($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), top, $position-value)
+=bottom($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), bottom, $position-value)
+=left($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), left, $position-value)
+=right($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), right, $position-value)
