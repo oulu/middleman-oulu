@@ -18,14 +18,17 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_dependency("bundler", "~> 1.3")
+  spec.add_dependency("rake")
+  spec.add_dependency("sass", "~> 3.4.5")
+  spec.add_dependency("compass", "~> 1.0.1")
 
-  spec.add_development_dependency "oily_png"
-  spec.add_development_dependency "ceaser-easing"
-  spec.add_development_dependency "compass-rgbapng"
-  spec.add_development_dependency "modular-scale"
-  spec.add_development_dependency "SassyLists"
-  spec.add_development_dependency "sassy-maps"
-  spec.add_development_dependency "toolkit"
+  spec.add_dependency("oily_png")
+  spec.add_dependency("ceaser-easing")
+  spec.add_dependency("compass-rgbapng")
+  spec.add_dependency("modular-scale")
+  spec.add_dependency("SassyLists")
+  spec.add_dependency("sassy-maps")
+  spec.add_dependency("toolkit")
+
 end
