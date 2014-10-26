@@ -46,8 +46,8 @@
   @else
     @return null
 
-@function px_to_em($px, $base-px: $baseline-px)
-  @if $px == 0
+@function px_to_em($px, $base-px)
+  @if strip_unit($px) == 0
     @return 0
   @else if px($px)
     @return (strip_unit($px) / strip_unit($base-px)) * 1em
