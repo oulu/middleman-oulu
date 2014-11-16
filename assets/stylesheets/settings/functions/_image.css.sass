@@ -1,6 +1,6 @@
 @function image($value)
   @if string($value)
-    @if number(str-index($value, '.jpg')) or number(str-index($value, '.png')) or number(str-index($value, '.gif')) or number(str-index($value, '.svg'))
+    @if number(str-index(to-lower-case($value), '.jpg')) or number(str-index(to-lower-case($value), '.jpeg')) or number(str-index(to-lower-case($value), '.gif')) or number(str-index(to-lower-case($value), '.png')) or number(str-index(to-lower-case($value), '.tiff')) or number(str-index(to-lower-case($value), '.tif')) or number(str-index(to-lower-case($value), '.bmp')) or number(str-index(to-lower-case($value), '.pct')) or number(str-index(to-lower-case($value), '.jpe')) or number(str-index(to-lower-case($value), '.jfif')) or number(str-index(to-lower-case($value), '.dib'))
       @return true
     @else
       @return null

@@ -1,5 +1,5 @@
 module Middleman
   module Oulu
-    VERSION = "0.5.6"
+    VERSION = "0.5.10"
   end
 end
