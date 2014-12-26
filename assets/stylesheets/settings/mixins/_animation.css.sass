@@ -6,7 +6,7 @@
   $transition-delays: ()
   @each $value in $list
     @for $i from 1 through length($value)
-      $transition-properties: append(transition-properties, if(transition_property(nth($value, $i)), nth($value, $i), null), comma)
+      $transition-properties: append(transition-properties, if(transition_property(nth($value, $i)), transition_property(nth($value, $i)), null), comma)
       $transition-durations: append($transition-durations, if(transition_duration(nth($value, $i)), nth($value, $i), null), comma)
       $transition-timing-functions: append($transition-timing-functions, if(transition_timing_function(nth($value, $i)), nth($value, $i), null), comma)
       $transition-delays: append($transition-delays, if(transition_delay(nth($value, $i)), transition_delay(nth($value, $i)), null), comma)
