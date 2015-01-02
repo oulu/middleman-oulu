@@ -22,13 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("rake")
   spec.add_dependency("sass", "~> 3.4.5")
   spec.add_dependency("compass", "~> 1.0.1")
-
   spec.add_dependency("oily_png")
-  spec.add_dependency("ceaser-easing")
   spec.add_dependency("compass-rgbapng")
-  spec.add_dependency("modular-scale")
-  spec.add_dependency("SassyLists")
-  spec.add_dependency("sassy-maps")
-  spec.add_dependency("toolkit")
 
 end
