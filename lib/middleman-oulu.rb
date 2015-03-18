@@ -1,8 +1,7 @@
 require "middleman-oulu/version"
-require 'compass'
+require 'bourbon'
 
 module Middleman
   module Oulu
-    require 'rgbapng'
   end
 end

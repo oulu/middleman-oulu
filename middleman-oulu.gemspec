@@ -21,8 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("bundler", "~> 1.3")
   spec.add_runtime_dependency("rake")
   spec.add_runtime_dependency("sass", "~> 3.4.5")
-  spec.add_runtime_dependency("compass", "~> 1.0.1")
-  spec.add_runtime_dependency("oily_png")
-  spec.add_runtime_dependency("compass-rgbapng")
+  spec.add_runtime_dependency("bourbon")
 
 end
