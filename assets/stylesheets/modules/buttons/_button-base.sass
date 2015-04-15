@@ -39,6 +39,15 @@
           +rem('margin-left', $font-size/4)
         @else
           +rem('margin-left', $font-size/3)
+  &.is-input-container
+    padding: 0
+    +relative
+    i
+      +absolute(left $height/2, top 0)
+      +rem('line-height', $height - ($border-width*2))
+    input
+      +padding(horizontal, ($height + if($font-size > 28, $font-size/4, $font-size/3)) $height/2)
+      +rem('height', $height - ($border-width*2))
 
 =button-group
   .is-button-group
