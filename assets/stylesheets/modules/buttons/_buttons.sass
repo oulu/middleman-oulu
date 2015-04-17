@@ -4,12 +4,19 @@ $button-styles: normal, border, flat-emboss, material
 
 @import button-base
 
+// button styles
 @import styles/normal
 @import styles/border
 @import styles/flat-emboss
 @import styles/material
 
 @import button-helper
+
+// inputのスタイルを継承させる
+input[type= submit]
+  color: inherit
+  font-size: inherit
+  font-weight: inherit
 
 =button($style, $size, $color, $options: false)
   +button-base
