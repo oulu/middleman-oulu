@@ -1,6 +1,8 @@
-body
-  content: #{luma(#f2f2f2)}
 =flat-emboss-button($color: blue)
+  @if luma($color) > 90
+    $color: #f2f2f2
+  @else
+    $color: $color
   +transition(.5s (background-image))
   background-color: $color
   color: luma_contrast_color($color)
@@ -24,3 +26,27 @@ body
       background-color: $color
     box-shadow: shade($color, 18%) 0 2px 0
     +top(1px)
+  &.is-disabled
+    @if luma($color) > 90
+      $color: #f2f2f2
+    @else
+      $color: $color
+    $color: desaturate($color, 10%)
+    cursor: default
+    color: rgba(luma_contrast_color($color), .7)
+    background-color: $color
+    box-shadow: shade($color, 10%) 0 0 0 1px inset
+    text-shadow: none
+    &:hover,
+    &.hover,
+    &.is-hover,
+    &:active,
+    &.active,
+    &.is-active
+      cursor: default
+      color: rgba(luma_contrast_color($color), .7)
+      background-color: $color
+      box-shadow: shade($color, 10%) 0 0 0 1px inset
+      text-shadow: none
+      +top(0)
+      pointer-events: none
