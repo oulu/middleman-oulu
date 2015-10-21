@@ -22,3 +22,22 @@
   &.is-checked
     color: $default-text-reversal
     background-color: $color
+  &.is-disabled
+    border-color: desaturate($color, 50%)
+    color: desaturate($color, 50%)
+    cursor: default !important
+    opacity: .6
+    pointer-events: none
+    *
+      cursor: default !important
+    &:hover,
+    &.hover,
+    &.is-hover,
+    &:active,
+    &.active,
+    &.is-active
+      border-color: desaturate($color, 50%)
+      color: desaturate($color, 50%)
+      cursor: default !important
+      opacity: .6
+      pointer-events: none
